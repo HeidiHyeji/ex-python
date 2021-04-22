@@ -12,11 +12,13 @@ def func(cur):
             isusedY[y][i] = True
             isusedN[3*(x//3)+(y//3)][i] = True
             pan[x][y] = i
-            if func(k+1): return True
+            if func(k+1): 
+                return True
+            pan[x][y] = 0
             isusedX[x][i] = False
             isusedY[y][i] = False
             isusedN[3*(x//3)+(y//3)][i] = False            
-    return False
+        return False
 for _ in range(9):
     pan.append(list(map(int,sys.stdin.readline().split())))
     isusedX.append([False]*10)
@@ -31,6 +33,7 @@ for i in range(9):
             isusedY[j][pan[i][j]] = True
             isusedN[3*(i//3)+(j//3)][pan[i][j]] = True
 func(0)
+print()
 for i in range(9):
     for j in range(8):
         print(pan[i][j],end = ' ')
