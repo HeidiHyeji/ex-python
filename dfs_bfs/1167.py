@@ -26,4 +26,8 @@ for i in range(V):
     graph[first] = tmp
 
 bfs(1)
+t = value.index(max(value))
+value = [0] * (V+1)
+visited = [False] * (V+1)
+bfs(t)
 print(max(value))
